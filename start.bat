@@ -1,0 +1,2 @@
+python animalese.py
+pause

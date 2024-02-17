@@ -8,11 +8,11 @@ import base64
 import urllib.parse
 
 TEMP_FILE_NAME = "temp.wav"
-letter_graphs = [
+letter_graphs = [# add symbols you want unique sounds for here, add the symbol.wav to the letter foler
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
     "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
-    "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6",
-    "7", "8", "9"
+    "w", "x", "y", "z", 
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" 
 ]
 
 digraphs = [
@@ -96,7 +96,7 @@ CORS(app, supports_credentials=True)
 def synthesize(text):
     line = urllib.parse.unquote(request.url[request.url.find('synthesize/?')+12:])
 
-    pitch_shift = 2
+    pitch_shift = 3
     sound = build_and_say_sentence_with_voice(line, pitch_shift)
     sound.export(OUTPUT_FILE, format="wav")
     enc = base64.b64encode(open(OUTPUT_FILE, "rb").read())

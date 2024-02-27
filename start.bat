@@ -1,2 +1,2 @@
-python animalese.py
+python sans.py
 pause
